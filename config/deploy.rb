@@ -3,12 +3,11 @@ lock "3.7.2"
 
 set :application, "teachbase_auth"
 set :group, 'apps'
+set :user, 'roller'
 set :repo_name, fetch(:application)
 set :repo_url, ->{ "git@github.com:pandamako/#{fetch :repo_name}.git" }
 set :rails_env, fetch(:stage)
 set :deploy_user, 'deploy'
-
-set :scm, :git
 
 set :keep_releases, 5
 # set :format, :pretty
@@ -19,7 +18,7 @@ set :linked_files, %w(config/database.yml config/secrets.yml)
 set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets tmp/sessions public/assets public/system)
 
 set :file_permissions_paths, %w(tmp/pids log tmp/cache/assets public/system)
-set :file_permissions_users, Array(fetch :application)
+set :file_permissions_users, Array(fetch :user)
 set :file_permissions_groups, Array(fetch :group)
 
 Airbrussh.configure do |config|
