@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module TeachbaseAuth
   DOMAIN = case Rails.env
+    when 'production' then 'auth.teachbase.tk'
     when 'development' then 'teachbase-auth.dev'
     when 'test' then 'test.dev'
   end
