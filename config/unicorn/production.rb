@@ -14,7 +14,7 @@ listen "#{shared_path}/tmp/sockets/unicorn.socket", backlog: 64, rcvbuf: 100 * 1
 #listen "127.0.0.1:9000"
 
 # Spawn unicorn master worker for user apps (group: apps)
-user app_name
+user 'roller'
 
 # Fill path to your app
 working_directory app_path
