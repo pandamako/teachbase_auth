@@ -105,7 +105,7 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.facebook.key = Rails.application.secrets.oauth[:facebook][:app_id]
   config.facebook.secret = Rails.application.secrets.oauth[:facebook][:app_secret]
-  config.facebook.callback_url = "http://#{TeachbaseAuth::DOMAIN}/oauth/callback?provider=facebook"
+  config.facebook.callback_url = "http://#{TeachbaseAuth::DOMAIN}/oauth_login/callback?provider=facebook"
   config.facebook.user_info_mapping = { email: 'name' }
   config.facebook.access_permissions = %w(email)
   config.facebook.display = 'page'
