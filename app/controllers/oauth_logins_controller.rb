@@ -1,8 +1,8 @@
 class OauthLoginsController < ApplicationController
-  skip_before_filter :require_login
+  skip_before_action :require_login
 
   def oauth
-    session[:return_to_url] = request.referer unless request.referer =~ /oauth/
+    # session[:return_to_url] = request.referer unless request.referer =~ /oauth/
     login_at(params[:provider])
   end
 
@@ -10,7 +10,7 @@ class OauthLoginsController < ApplicationController
     provider = params[:provider]
     return_to = session['return_to_url']
     if @user = login_from(provider)
-      redirect_to return_to || user_url @user, :notice => "Logged in from #{provider.titleize}!"
+      redirect_to return_to || user_url(@user, :notice => "Logged in from #{provider.titleize}!")
     else
       begin
         @user = create_from(provider)
@@ -18,7 +18,7 @@ class OauthLoginsController < ApplicationController
 
         reset_session # protect from session fixation attack
         auto_login(@user)
-        redirect_to return_to || user_url @user, :notice => "Logged in from #{provider.titleize}!"
+        redirect_to return_to || user_url(@user, :notice => "Logged in from #{provider.titleize}!")
       rescue Error => e
         redirect_to login_url, :alert => "Failed to login from #{provider.titleize}!"
       end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   use_doorkeeper
-  root :to => 'users#new'
+  root :to => 'me#index'
 
   resources :users, only: [:show, :new, :create]
   resources :user_sessions, only: [:new, :create, :destroy]

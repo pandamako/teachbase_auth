@@ -32,6 +32,12 @@ gem 'jbuilder'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'awesome_print'
+gem 'pry-rails'
+gem 'pry-stack_explorer'
+gem 'byebug'
+gem 'pry-byebug'
+gem 'marco-polo'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
